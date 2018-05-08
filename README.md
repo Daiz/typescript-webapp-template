@@ -4,6 +4,14 @@ This is my personal lean template for getting quickly started with building fron
 
 It's intended to be used with [Visual Studio Code](https://code.visualstudio.com/) in order to get automatic formatting with [Prettier](https://prettier.io/) on saving. You can configure other editors to do this too, but the repository only includes configuration files for VS Code, since it's what I use myself.
 
+## How to use
+
+1. Download the repository.
+2. Remove the existing git repository (by deleting the `.git` folder) and initialize a new one for your project.
+3. Edit relevant fields in `package.json`.
+4. Develop away with `npm start`
+5. Build app for production with `npm run build`
+
 ## What's included
 
 - [Webpack 4](https://webpack.js.org/)
