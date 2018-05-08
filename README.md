@@ -1,4 +1,4 @@
-# Webpack & Typescript Boilerplate
+# Webpack & TypeScript Boilerplate
 
 This is my personal lean boilerplate for getting quickly started with Webpack & TypeScript projects.
 
@@ -37,6 +37,22 @@ If you want to use something like eg. Sass, you'll want to `npm install -D node-
 ```
 
 By using external CSS you'll most likely want to remove TypeStyle from the project as well with `npm unistall typestyle`
+
+### File Embedding
+
+If you want to embed files directly into your bundle as Data URIs, you can `npm install -D url-loader` and add the following to `webpack.config.js` into the module rules array:
+
+```javascript
+{
+  test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/, // applied to images & fonts
+  use: [{
+    loader: "url-loader",
+    options: {
+      limit: 100000 // maximum size in bytes for an asset to get inlined
+    }
+  }]
+}
+```
 
 ### React
 
