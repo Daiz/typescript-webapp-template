@@ -1,5 +1,5 @@
 {
-  "name": "webpack-typescript-boilerplate",
+  "name": "typescript-webapp-template",
   "version": "1.0.0",
   "main": "dist/bundle.js",
   "module": "lib/index.js",

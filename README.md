@@ -1,6 +1,6 @@
-# Webpack & TypeScript Boilerplate
+# TypeScript Webapp Template
 
-This is my personal lean boilerplate for getting quickly started with Webpack & TypeScript projects.
+This is my personal lean template for getting quickly started with building front-end webapps using Webpack & TypeScript.
 
 It's intended to be used with [Visual Studio Code](https://code.visualstudio.com/) in order to get automatic formatting with [Prettier](https://prettier.io/) on saving. You can configure other editors to do this too, but the repository only includes configuration files for VS Code, since it's what I use myself.
 
@@ -9,7 +9,7 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 - [Webpack 4](https://webpack.js.org/)
 - [Webpack Serve](https://github.com/webpack-contrib/webpack-serve)
   * With History API fallback (like the webpack-dev-server option)
-  * To preview over WiFi, you can use `npm set webpack-typescript-boilerplate:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this, and afterwards you should be able to preview your app from other devices by accessing it via the defined IP.
+  * To preview over WiFi, you can use `npm set typescript-webapp-template:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this, and afterwards you should be able to preview your app from other devices by accessing it via the defined IP.
 - [TypeStyle](https://typestyle.github.io/)
   * You'll probably want the `csx` and `csstips` helper modules to go with this too, so they're included by default.
 
