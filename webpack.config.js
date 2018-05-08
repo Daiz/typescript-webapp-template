@@ -7,8 +7,6 @@ const {
   basename,
   dirname
 } = require("path");
-const convert = require('koa-connect');
-const history = require('connect-history-api-fallback');
 const pkg = require("./package.json");
 
 const HOST = process.env.npm_package_config_host || pkg.config.host;
@@ -65,10 +63,6 @@ module.exports = {
   serve: {
     host: HOST,
     port: PORT,
-    content: [__dirname],
-    add: (app, middleware, options) => {
-      // history API fallback
-      app.use(convert(history({})));
-    }
+    content: [__dirname]
   }
 };

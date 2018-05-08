@@ -18,7 +18,7 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 
 Webpack bundles the project, naturally. May get replaced with [Parcel](https://parceljs.org/) in the future, but for the time being Webpack enables more useful features.
 
-A live reloading development server is also a must, which is why we also have Webpack Serve. You can also use it to preview your project over local WiFi (useful for testing with eg. real mobile devices). To do this, run `npm set typescript-webapp-template:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this. Now you should be able to preview your app from other devices by accessing it via the defined IP. Preconfigured for History API fallback (like the webpack-dev-server option).
+A live reloading development server is also a must, which is why we also have Webpack Serve. You can also use it to preview your project over local WiFi (useful for testing with eg. real mobile devices). To do this, run `npm set typescript-webapp-template:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this. Now you should be able to preview your app from other devices by accessing it via the defined IP.
 
 ### [TypeStyle](https://typestyle.github.io/)
 
@@ -55,6 +55,25 @@ If you want to use something like eg. [Sass](https://sass-lang.com/), you'll wan
 ```
 
 By using external CSS you'll most likely want to remove TypeStyle from the project as well with `npm unistall typestyle`
+
+### History API fallback for development server
+
+This allows you to redirect requests to non-existent resources back to your index file. Primarily useful for webapps that work with "bare" URLs (`[host]/webapp/route/index`) instead of eg. hashbangs (`[host]/#!/webapp/route/index`). To add this functionality, first run `npm install -D koa-connect connect-history-api-fallback` and then add the following into your `webpack.config.js`:
+
+```javascript
+// At the top of the file
+const convert = require("koa-connect");
+const history = require("connect-history-api-fallback");
+// in the `serve` section of the config:
+{
+  serve: {
+    add: (app, middleware, options) => {
+      // history API fallback
+      app.use(convert(history({})));
+    }
+  }
+}
+```
 
 ### File Embedding
 
