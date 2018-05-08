@@ -40,31 +40,9 @@ module.exports = {
         include: resolve(__dirname, "src")
       },
       {
-        // Babel is used with webpack-dev-server
-        // to make it function on iOS 9/10
-        test: /\.js$/,
-        include: /webpack-dev-server/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["env"]
-          }
-        }
-      },
-      {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader"
-      },
-      {
-        test: /\.css$/,
-        use: [{
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-        ]
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
@@ -80,9 +58,13 @@ module.exports = {
 
   plugins: [new CheckerPlugin()],
 
-  devServer: {
+  serve: {
     host: HOST,
     port: PORT,
-    historyApiFallback: true
+    content: [__dirname],
+    add: (app, middleware, options) => {
+      // history API fallback
+      app.use(convert(history({})));
+    }
   }
 };
