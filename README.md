@@ -14,15 +14,21 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 
 ## What's included
 
-- [Webpack 4](https://webpack.js.org/)
-  * May get replaced with [Parcel](https://parceljs.org/) in the future, but for the time being Webpack enables more useful features.
-- [Webpack Serve](https://github.com/webpack-contrib/webpack-serve)
-  * With History API fallback (like the webpack-dev-server option)
-  * To preview over WiFi, you can use `npm set typescript-webapp-template:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this, and afterwards you should be able to preview your app from other devices by accessing it via the defined IP.
-- [TypeStyle](https://typestyle.github.io/)
-  * You'll probably want the `csx` and `csstips` helper modules to go with this too, so they're included by default.
-- [Prettier](https://prettier.io/)
-  * Just focus on the coding and let Prettier take care of the formatting for you. Make sure to use an editor that can run Prettier on file save. VS Code will do it by default with the configuration files in this repository after you install the [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (which is automatically recommended by VS Code once you open the project)
+### [Webpack 4](https://webpack.js.org/)
+
+Bundles the project, naturally. May get replaced with [Parcel](https://parceljs.org/) in the future, but for the time being Webpack enables more useful features.
+
+### [Webpack Serve](https://github.com/webpack-contrib/webpack-serve)
+
+A live reloading development server is a must. To preview over WiFi, you can use `npm set typescript-webapp-template:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this, and afterwards you should be able to preview your app from other devices by accessing it via the defined IP. Preconfigured for History API fallback (like the webpack-dev-server option)
+
+### [TypeStyle](https://typestyle.github.io/)
+
+A typed CSS-in-JS solution that's very pleasant to use. You'll probably want the `csx` and `csstips` helper modules to go with this too, so they're included by default.
+
+### [Prettier](https://prettier.io/)
+
+Just focus on the coding and let Prettier take care of the formatting for you. Make sure to use an editor that can run Prettier on file save. VS Code will do it by default with the configuration files in this repository after you install the [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (which is automatically recommended by VS Code once you open the project)
 
 ## What's *not* included
 
