@@ -9,6 +9,7 @@
   "files.exclude": {
     "data/": true,
     "dist/": true,
+    "lib/": true,
     "node_modules/": true
   },
   "editor.codeActionsOnSave": {
