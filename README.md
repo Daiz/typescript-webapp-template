@@ -2,7 +2,7 @@
 
 This is my personal lean boilerplate for getting quickly started with Webpack & TypeScript projects.
 
-It's intended to be used with [Visual Studio Code](https://code.visualstudio.com/) or another code that supports automatic formatting with [Prettier](https://prettier.io/) on saving.
+It's intended to be used with [Visual Studio Code](https://code.visualstudio.com/) in order to get automatic formatting with [Prettier](https://prettier.io/) on saving. You can configure other editors to do this too, but the repository only includes configuration files for VS Code, since it's what I use myself.
 
 ## What's included
 
