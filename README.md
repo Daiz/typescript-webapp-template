@@ -70,7 +70,7 @@ const history = require("connect-history-api-fallback");
     add: (app, middleware, options) => {
       // For available options, consult the following:
       // https://github.com/bripkens/connect-history-api-fallback#options
-      app.use(convert(history({})));
+      app.use(convert(history({/* options */})));
     }
   }
 }
