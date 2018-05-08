@@ -6,9 +6,9 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 
 ## How to use
 
-1. Download the repository.
-2. Remove the existing git repository (by deleting the `.git` folder) and initialize a new one for your project.
-3. Edit relevant fields in `package.json`.
+1. Download the repository
+2. Remove the existing git repository (by deleting the `.git` folder) and initialize a new one for your project
+3. Edit relevant fields in `package.json`
 4. Develop away with `npm start`
 5. Build app for production with `npm run build`
 
