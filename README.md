@@ -68,7 +68,8 @@ const history = require("connect-history-api-fallback");
 {
   serve: {
     add: (app, middleware, options) => {
-      // history API fallback
+      // For available options, consult the following:
+      // https://github.com/bripkens/connect-history-api-fallback#options
       app.use(convert(history({})));
     }
   }
