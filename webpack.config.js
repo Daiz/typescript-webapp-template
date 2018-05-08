@@ -7,6 +7,8 @@ const {
   basename,
   dirname
 } = require("path");
+const convert = require('koa-connect');
+const history = require('connect-history-api-fallback');
 const pkg = require("./package.json");
 
 const HOST = process.env.npm_package_config_host || pkg.config.host;
@@ -16,6 +18,8 @@ const FILENAME = basename(MAIN);
 const PATH = dirname(MAIN);
 
 module.exports = {
+  mode: "development",
+
   entry: {
     loader: "./src/index.ts"
   },
