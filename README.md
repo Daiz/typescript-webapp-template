@@ -1,6 +1,6 @@
 # Webpack & Typescript Boilerplate
 
-This is my personal boilerplate for getting quickly started with Webpack & TypeScript projects.
+This is my personal lean boilerplate for getting quickly started with Webpack & TypeScript projects.
 
 It's intended to be used with [Visual Studio Code](https://code.visualstudio.com/) or another code that supports automatic formatting with [Prettier](https://prettier.io/) on saving.
 
@@ -8,14 +8,17 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 
 - [Webpack 4](https://webpack.js.org/)
 - [Webpack Serve](https://github.com/webpack-contrib/webpack-serve)
-- [TypeStyle](https://github.com/typestyle/typestyle)
+  * With History API fallback (like the webpack-dev-server option)
+  * To preview over WiFi, you can use `npm set webpack-typescript-boilerplate:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this, and afterwards you should be able to preview your app from other devices by accessing it via the defined IP.
+- [TypeStyle](https://typestyle.github.io/)
+  * You'll probably want the `csx` and `csstips` helper modules to go with this too, so they're included by default.
 
 
-## What's not included
+## What's *not* included
 
-### Any CSS loaders
+### Any external CSS loaders
 
-If you want to use something like eg. Sass, you'll want to `npm install -D node-sass sass-loader css-loader style-loader` and add the following to `webpack.config.js`:
+If you want to use something like eg. Sass, you'll want to `npm install -D node-sass sass-loader css-loader style-loader` and add the following to `webpack.config.js` into the module rules array:
 
 ```javascript
 {
@@ -32,6 +35,8 @@ If you want to use something like eg. Sass, you'll want to `npm install -D node-
   ]
 }
 ```
+
+By using external CSS you'll most likely want to remove TypeStyle from the project as well with `npm unistall typestyle`
 
 ### React
 
@@ -56,3 +61,7 @@ Prettier along with strict mode enabled in `tsconfig.json` are considered to be 
   }
 }
 ```
+
+## License
+
+[Creative Commons Zero (CC0) 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/)
