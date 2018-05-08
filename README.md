@@ -14,13 +14,11 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 
 ## What's included
 
-### [Webpack 4](https://webpack.js.org/)
+### [Webpack 4](https://webpack.js.org/) & [Webpack Serve](https://github.com/webpack-contrib/webpack-serve)
 
-Bundles the project, naturally. May get replaced with [Parcel](https://parceljs.org/) in the future, but for the time being Webpack enables more useful features.
+Webpack bundles the project, naturally. May get replaced with [Parcel](https://parceljs.org/) in the future, but for the time being Webpack enables more useful features.
 
-### [Webpack Serve](https://github.com/webpack-contrib/webpack-serve)
-
-A live reloading development server is a must. To preview over WiFi, you can use `npm set typescript-webapp-template:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this, and afterwards you should be able to preview your app from other devices by accessing it via the defined IP. Preconfigured for History API fallback (like the webpack-dev-server option)
+A live reloading development server is also a must, which is why we also have Webpack Serve. You can also use it to preview your project over local WiFi (useful for testing with eg. real mobile devices). To do this, run `npm set typescript-webapp-template:host 192.168.X.X` with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this. Now you should be able to preview your app from other devices by accessing it via the defined IP. Preconfigured for History API fallback (like the webpack-dev-server option).
 
 ### [TypeStyle](https://typestyle.github.io/)
 
