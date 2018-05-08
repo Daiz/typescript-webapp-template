@@ -13,12 +13,15 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 - [TypeStyle](https://typestyle.github.io/)
   * You'll probably want the `csx` and `csstips` helper modules to go with this too, so they're included by default.
 
-
 ## What's *not* included
+
+### Automatic vendor bundling support
+
+[AutoDllPlugin](https://github.com/asfktz/autodll-webpack-plugin) is a wonderful tool for improving build times and separating dependencies into its own vendor bundle, but the canonic version of the plugin does not support Webpack 4 right now. However, it will be included once support is in.
 
 ### Any external CSS loaders
 
-If you want to use something like eg. Sass, you'll want to `npm install -D node-sass sass-loader css-loader style-loader` and add the following to `webpack.config.js` into the module rules array:
+If you want to use something like eg. [Sass](https://sass-lang.com/), you'll want to `npm install -D node-sass sass-loader css-loader style-loader` and add the following to `webpack.config.js` into the module rules array:
 
 ```javascript
 {
@@ -60,7 +63,7 @@ TBD - for React you'll want React itself, React DOM, types and hot loading
 
 ### TSLint & Pre-commit linting/formatting
 
-Prettier along with strict mode enabled in `tsconfig.json` are considered to be enough of a linting process in itself by this template, and the automatic Prettier formatting on save in VSCode eliminates the need for Prettier formatting pre-commit. However, if you want, you can always add TSLint and pre-commit linting to the project with `npm install tslint tslint-config-prettier tslint-langauge-service lint-staged husky` and by adding the following into `package.json`:
+Prettier along with strict mode enabled in `tsconfig.json` are considered to be enough of a linting process in itself by this template, and the automatic Prettier formatting on save in VS Code eliminates the need for Prettier formatting pre-commit. However, if you want, you can always add TSLint and pre-commit linting to the project with `npm install tslint tslint-config-prettier tslint-langauge-service lint-staged husky` and by adding the following into `package.json`:
 
 ```json
 {
