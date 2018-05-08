@@ -57,6 +57,10 @@ If you want to embed files directly into your bundle as Data URIs, you can `npm 
 }
 ```
 
+### Routing
+
+Currently the template does not include anything for routing, but I will probably make an opinionated choice at some point after I find a router that's satisfying to work with in TypeScript and fulfills my personal needs.
+
 ### React
 
 TBD - for React you'll want React itself, React DOM, types and hot loading
