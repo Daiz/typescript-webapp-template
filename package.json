@@ -10,11 +10,13 @@
     "port": "8080"
   },
   "scripts": {
-    "start": "webpack-serve -d --progress --colors --hot --inline",
-    "dist": "webpack -p && node dist",
+    "start": "webpack-serve webpack.config.js",
+    "dist": "webpack --mode=production -p",
     "lib": "tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "typestyle": "^1.7.2"
+  },
   "devDependencies": {
     "@types/node": "^10.0.4",
     "awesome-typescript-loader": "^5.0.0",
