@@ -1,0 +1,39 @@
+{
+  "name": "webpack-typescript-boilerplate",
+  "version": "1.0.0",
+  "main": "dist/bundle.js",
+  "author": "Daiz <taneli.vatanen@gmail.com>",
+  "license": "CC0-1.0",
+  "config": {
+    "host": "localhost",
+    "port": "8080"
+  },
+  "scripts": {
+    "start": "webpack-dev-server -d --progress --colors --hot --inline",
+    "precommit": "lint-staged",
+    "build": "webpack -p && node dist"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --parser typescript --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^10.0.4",
+    "awesome-typescript-loader": "^5.0.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
+    "prettier": "^1.7.4",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "typescript": "^2.8.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.8.1",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
