@@ -15,6 +15,8 @@
     "lib": "tsc"
   },
   "dependencies": {
+    "csstips": "^0.2.3",
+    "csx": "^8.5.0",
     "typestyle": "^1.7.2"
   },
   "devDependencies": {
