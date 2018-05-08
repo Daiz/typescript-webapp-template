@@ -10,14 +10,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server -d --progress --colors --hot --inline",
-    "precommit": "lint-staged",
     "build": "webpack -p && node dist"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --parser typescript --write",
-      "git add"
-    ]
   },
   "devDependencies": {
     "@types/node": "^10.0.4",
@@ -26,8 +19,6 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.11",
-    "husky": "^0.14.3",
-    "lint-staged": "^7.1.0",
     "prettier": "^1.7.4",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
