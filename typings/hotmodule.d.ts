@@ -1,5 +1,7 @@
 // Typings for Hot Module Reloading
 declare namespace HotModule {
+  type OutdatedModules = number[];
+
   interface HotNotify {
     type:
       | "self-declined"
@@ -27,7 +29,7 @@ declare namespace HotModule {
   interface HotNotifyAccepted extends HotNotify {
     type: "accepted";
     chain: number[];
-    outdatedModules: number[];
+    outdatedModules: OutdatedModules;
     outdatedDependencies: {
       [key: number]: number[];
     };
@@ -75,8 +77,8 @@ declare namespace HotModule {
     addDisposeHandler(callback: (data: any) => void): void;
     removeDisposeHandler(callback: (data: any) => void): void;
     status(): Status;
-    check(autoApply: boolean | HotApplyOptions): Promise<number[]>;
-    apply(options: HotApplyOptions): Promise<number[]>;
+    check(autoApply: boolean | HotApplyOptions): Promise<OutdatedModules>;
+    apply(options: HotApplyOptions): Promise<OutdatedModules>;
     addStatusHandler(callback: (status: Status) => void): void;
     removeStatusHandler(callback: (status: Status) => void): void;
   }
