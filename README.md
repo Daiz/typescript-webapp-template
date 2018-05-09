@@ -120,7 +120,7 @@ Prettier along with strict mode enabled in `tsconfig.json` are considered to be 
 }
 ```
 
-To configure whatever TSLint config you end up using to work with Prettier, you should make sure you extends your `tslint.json` with `tslint-config-prettier`:
+To configure whatever TSLint setup you end up using to work with Prettier, you should make sure you extend your `tslint.json` with `tslint-config-prettier`:
 
 ```javascript
 {
