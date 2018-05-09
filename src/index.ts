@@ -1,10 +1,13 @@
 import { normalize, setupPage } from "csstips";
 import { rem } from "csx";
 import { style } from "typestyle";
-import { greeting } from "./message";
+import greeting from "./message";
+
+const ROOT = "#root";
+const NAMES = "Webpack & TypeScript";
 
 normalize();
-setupPage("#root");
+setupPage(ROOT);
 
 const fancyText = style({
   margin: rem(1),
@@ -12,10 +15,13 @@ const fancyText = style({
   color: "teal"
 });
 
-const message = greeting("Webpack & TypeScript");
 const d = document;
-const el = d.querySelector("h1")!;
-el.className = fancyText;
-el.textContent = message;
+const el = d.querySelector(ROOT)!;
+greeting(el, NAMES);
 
-console.log(message);
+declare var module: NodeHotModule;
+if (module.hot) {
+  module.hot.accept("./message", () => {
+    greeting(el, NAMES);
+  });
+}
