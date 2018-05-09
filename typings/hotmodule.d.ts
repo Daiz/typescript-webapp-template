@@ -50,9 +50,9 @@ declare namespace HotModule {
   }
 
   interface HotApplyOptions {
-    ignoreUnaccepted?: boolean;
-    ignoreDeclined?: boolean;
-    ignoreErrored?: boolean;
+    ignoreUnaccepted: boolean;
+    ignoreDeclined: boolean;
+    ignoreErrored: boolean;
     onDeclined(callback: (info: HotNotifyDeclined) => void): void;
     onUnaccepted(callback: (info: HotNotifyUnaccepted) => void): void;
     onAccepted(callback: (info: HotNotifyAccepted) => void): void;
@@ -77,8 +77,9 @@ declare namespace HotModule {
     addDisposeHandler(callback: (data: any) => void): void;
     removeDisposeHandler(callback: (data: any) => void): void;
     status(): Status;
-    check(autoApply: boolean | HotApplyOptions): Promise<OutdatedModules>;
-    apply(options: HotApplyOptions): Promise<OutdatedModules>;
+    check(autoApply: boolean): Promise<OutdatedModules>;
+    check(options: Partial<HotApplyOptions>): Promise<OutdatedModules>;
+    apply(options: Partial<HotApplyOptions>): Promise<OutdatedModules>;
     addStatusHandler(callback: (status: Status) => void): void;
     removeStatusHandler(callback: (status: Status) => void): void;
   }
