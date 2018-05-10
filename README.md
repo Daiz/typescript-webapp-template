@@ -34,7 +34,7 @@ Just focus on the coding and let Prettier take care of the formatting for you. M
 
 [AutoDllPlugin](https://github.com/asfktz/autodll-webpack-plugin) is a wonderful tool for improving build times and separating dependencies into its own vendor bundle, but the canonic version of the plugin does not support Webpack 4 right now. However, it will be included once support is in.
 
-### Any external CSS loaders
+### External CSS loaders
 
 If you want to use something like eg. [Sass](https://sass-lang.com/), you'll want to `npm install -D node-sass sass-loader css-loader style-loader` and add the following to `webpack.config.js` into the module rules array:
 
@@ -51,6 +51,22 @@ If you want to use something like eg. [Sass](https://sass-lang.com/), you'll wan
       loader: "sass-loader"
     }
   ]
+}
+```
+
+### File Embedding
+
+If you want to embed files directly into your bundle as Data URIs, you can `npm install -D url-loader` and add the following to `webpack.config.js` into the module rules array:
+
+```javascript
+{
+  test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/, // applied to images & fonts
+  use: [{
+    loader: "url-loader",
+    options: {
+      limit: 100000 // maximum size in bytes for an asset to get inlined
+    }
+  }]
 }
 ```
 
@@ -76,29 +92,13 @@ const history = require("connect-history-api-fallback");
 }
 ```
 
-### File Embedding
+### React
 
-If you want to embed files directly into your bundle as Data URIs, you can `npm install -D url-loader` and add the following to `webpack.config.js` into the module rules array:
-
-```javascript
-{
-  test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svg)$/, // applied to images & fonts
-  use: [{
-    loader: "url-loader",
-    options: {
-      limit: 100000 // maximum size in bytes for an asset to get inlined
-    }
-  }]
-}
-```
+TBD - for React you'll want React itself, React DOM, types and hot loading
 
 ### Routing
 
 Currently the template does not include anything for routing, but I will probably make an opinionated choice at some point after I find a router that's satisfying to work with in TypeScript and fulfills my personal needs. This is primarily intended for React, and any included-by-default router can and should obviously be removed if you decide to go with a framework/library with routing built in (or if you simply don't need routing).
-
-### React
-
-TBD - for React you'll want React itself, React DOM, types and hot loading
 
 ### State Management
 
