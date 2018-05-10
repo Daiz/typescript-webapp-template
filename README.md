@@ -100,6 +100,10 @@ Currently the template does not include anything for routing, but I will probabl
 
 TBD - for React you'll want React itself, React DOM, types and hot loading
 
+### State Management
+
+TBD - [MobX](https://mobx.js.org/) recommended since it's written in TypeScript & is great
+
 ### TSLint & Pre-commit linting/formatting
 
 Prettier along with strict mode enabled in `tsconfig.json` are considered to be enough of a linting process in itself by this template, and the automatic Prettier formatting on save in VS Code eliminates the need for Prettier formatting pre-commit. However, if you want, you can always add [TSLint](https://palantir.github.io/tslint/) and pre-commit linting to the project with `npm install tslint tslint-config-prettier tslint-language-service lint-staged husky` and by adding the following into `package.json`:
