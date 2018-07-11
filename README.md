@@ -6,11 +6,11 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 
 ## How to use
 
-1. Download the repository
-2. Remove the existing git repository (by deleting the `.git` folder) and initialize a new one for your project
-3. Edit relevant fields in `package.json`
-4. Develop away with `npm start`
-5. Build app for production with `npm run build`
+1.  Download the repository
+2.  Remove the existing git repository (by deleting the `.git` folder) and initialize a new one for your project
+3.  Edit relevant fields in `package.json`
+4.  Develop away with `npm start`
+5.  Build app for production with `npm run build`
 
 ## What's included
 
@@ -28,7 +28,37 @@ A typed CSS-in-JS solution that's very pleasant to use. You'll probably want the
 
 Just focus on the coding and let Prettier take care of the formatting for you. Make sure to use an editor that can run Prettier on file save. VS Code will do it by default with the configuration files in this repository after you install the [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) (which is automatically recommended by VS Code once you open the project)
 
-## What's *not* included
+### [TSLint](https://palantir.github.io/tslint/)
+
+A minimal TSLint configuration with `tslint-language-service` (so you don't need a TSLint plugin in your editor) is included that flags the usage of `==` and `!=` over `===` and `!==` as errors (`triple-equals` rule), except for comparison against `null`. If you want a wider set of TSLint rules to use, consider [`tslint-config-standard`](https://github.com/blakeembrey/tslint-config-standard). To use it, simply change your `tslint.json` to the following:
+
+```javascript
+{
+  /* your personal tslint config */
+  "extends": ["tslint-config-standard", "tslint-config-prettier"]
+  /* make sure tslint-config-prettier comes last as it ensures lint rule compatibility with Prettier */
+}
+```
+
+If you or someone else you work with isn't using VS Code, you can also configure linting to be enforced on pre-commit level. To do this, you should first `npm install lint-staged husky`, then add the following to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "precommit": "lint-staged",
+    "lint": "tslint --type-check --project tsconfig.json \"src/**/*.ts*\""
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "prettier --parser typescript --write",
+      "git add"
+    ]
+  }
+}
+```
+
+## What's _not_ included
 
 ### Automatic vendor bundling support
 
@@ -86,8 +116,14 @@ const history = require("connect-history-api-fallback");
     add: (app, middleware, options) => {
       // For available options, consult the following:
       // https://github.com/bripkens/connect-history-api-fallback#options
-      app.use(convert(history({/* options */})));
-    }
+      app.use(
+        convert(
+          history({
+            /* options */
+          })
+        )
+      );
+    };
   }
 }
 ```
@@ -107,37 +143,6 @@ TBD - [MobX](https://mobx.js.org/) recommended since it's written in TypeScript 
 ### Testing
 
 TBD - Jest with ts-jest?
-
-### TSLint & Pre-commit linting/formatting
-
-Prettier along with strict mode enabled in `tsconfig.json` are considered to be enough of a linting process in itself by this template, and the automatic Prettier formatting on save in VS Code eliminates the need for Prettier formatting pre-commit. However, if you want, you can always add [TSLint](https://palantir.github.io/tslint/) and pre-commit linting to the project with `npm install tslint tslint-config-prettier tslint-language-service lint-staged husky` and by adding the following into `package.json`:
-
-```json
-{
-  "scripts": {
-    "precommit": "lint-staged",
-    "lint": "tslint --type-check --project tsconfig.json \"src/**/*.ts*\""
-  },
-    "lint-staged": {
-    "*.{ts,tsx}": [
-      "tslint --fix",
-      "prettier --parser typescript --write",
-      "git add"
-    ]
-  }
-}
-```
-
-To configure whatever TSLint setup you end up using to work with Prettier, you should make sure you extend your `tslint.json` with `tslint-config-prettier`:
-
-```javascript
-{
-  /* your personal tslint rules */
-  "extends": [/* "some-existing-tslint-config", */ "tslint-config-prettier"]
-}
-```
-
-With the inclusion of `tslint-language-service`, VS Code will be able to automatically pick up on TSLint issues and report them in the editor. You do not need a separate TSLint extension for this.
 
 ## License
 

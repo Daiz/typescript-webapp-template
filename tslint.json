@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "triple-equals": [true, "allow-null-check"]
+  },
+  "extends": ["tslint-config-prettier"]
+}

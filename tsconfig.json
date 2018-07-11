@@ -8,7 +8,10 @@
     "strict": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "plugins": [{
+      "name": "tslint-language-service"
+    }]
   },
   "include": ["src", "typings"]
 }
