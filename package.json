@@ -15,14 +15,14 @@
     "lib": "tsc"
   },
   "dependencies": {
-    "csstips": "^0.2.3",
-    "csx": "^8.5.0",
-    "typestyle": "^1.7.2"
+    "csstips": "^0.3.0",
+    "csx": "^9.0.0",
+    "typestyle": "^2.0.1"
   },
   "devDependencies": {
     "@types/node": "^10.0.4",
-    "awesome-typescript-loader": "^5.0.0",
-    "prettier": "^1.7.4",
+    "awesome-typescript-loader": "^5.2.0",
+    "prettier": "^1.13.7",
     "source-map-loader": "^0.2.3",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",
