@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "webpack-serve webpack.config.js",
-    "build": "webpack --mode=production -p",
+    "build": "webpack -p",
     "lib": "tsc"
   },
   "dependencies": {

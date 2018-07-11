@@ -16,7 +16,7 @@ const FILENAME = basename(MAIN);
 const PATH = dirname(MAIN);
 
 module.exports = {
-  mode: "development",
+  mode: process.env.WEBPACK_SERVE ? "development" : "production",
 
   entry: {
     loader: "./src/index.ts"
