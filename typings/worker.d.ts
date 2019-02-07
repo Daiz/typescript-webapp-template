@@ -7,3 +7,12 @@ declare interface TypedWorker<M, R> {
   addEventListener(type: "error", listener: (event: ErrorEvent) => void): void;
   terminate(): void;
 }
+
+declare interface TypedWorkerContext<M, R> {
+  postMessage(data: R): void;
+  addEventListener(
+    type: "message",
+    listener: (event: { data: M }) => void
+  ): void;
+  addEventListener(type: "error", listener: (event: ErrorEvent) => void): void;
+}

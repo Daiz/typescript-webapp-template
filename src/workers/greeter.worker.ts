@@ -1,5 +1,3 @@
-const ctx: Worker = self as any;
-
 type Actions = "greet" | "insult";
 
 interface Message {
@@ -34,8 +32,9 @@ type Messages = GreetMessage | InsultMessage;
 type Responses = GreetResponse | InsultResponse;
 
 export interface IGreeterWorker extends TypedWorker<Messages, Responses> {}
+const ctx: TypedWorkerContext<Messages, Responses> = self as any;
 
-ctx.addEventListener("message", ({ data }: { data: Messages }) => {
+ctx.addEventListener("message", ({ data }) => {
   switch (data.type) {
     case "greet":
       const greet: GreetResponse = {
