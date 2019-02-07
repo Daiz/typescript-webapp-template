@@ -1,7 +1,7 @@
 declare var module: NodeHotModule;
 
 import message, { MessageContainer } from "./message";
-import GreeterWorker, { IGreeterWorker } from "./workers/greeter.worker";
+import GreeterWorker from "./workers/greeter.worker";
 
 const d = document;
 
@@ -22,8 +22,8 @@ export function init(selector: string) {
   el.appendChild(message1.el);
   el.appendChild(message2.el);
 
-  const greeter1: IGreeterWorker = new GreeterWorker();
-  const greeter2: IGreeterWorker = new GreeterWorker();
+  const greeter1 = new GreeterWorker();
+  const greeter2 = new GreeterWorker();
   greeter1.postMessage({ type: "greet", name: "TypeScript" });
   greeter1.addEventListener("message", ({ data }) => {
     switch (data.type) {

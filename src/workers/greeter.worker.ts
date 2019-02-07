@@ -1,38 +1,37 @@
 type Action = "greet" | "insult";
 
-interface IMessage {
+interface Message {
   type: Action;
 }
 
-interface IResponse {
+interface Response {
   type: Action;
 }
 
-interface GreetMessage extends IMessage {
+interface GreetMessage extends Message {
   type: "greet";
   name: string;
 }
 
-interface GreetResponse extends IResponse {
+interface GreetResponse extends Response {
   type: "greet";
   greeting: string;
 }
 
-interface InsultMessage extends IMessage {
+interface InsultMessage extends Message {
   type: "insult";
   name: string;
 }
 
-interface InsultResponse extends IResponse {
+interface InsultResponse extends Response {
   type: "insult";
   insult: string;
 }
 
-type Message = GreetMessage | InsultMessage;
-type Response = GreetResponse | InsultResponse;
+type GreeterMessage = GreetMessage | InsultMessage;
+type GreeterResponse = GreetResponse | InsultResponse;
 
-export interface IGreeterWorker extends TypedWorker<Message, Response> {}
-const ctx: TypedWorkerContext<Message, Response> = self as any;
+const ctx: TypedWorkerContext<GreeterMessage, GreeterResponse> = self as any;
 
 ctx.addEventListener("message", ({ data }) => {
   switch (data.type) {
@@ -52,4 +51,4 @@ ctx.addEventListener("message", ({ data }) => {
   }
 });
 
-export default null as any;
+export default (null as any) as TypedWorker<GreeterMessage, GreeterResponse>;

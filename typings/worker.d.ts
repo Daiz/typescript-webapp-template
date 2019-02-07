@@ -1,4 +1,5 @@
 declare interface TypedWorker<M, R> {
+  new (): TypedWorker<M, R>;
   postMessage(data: M): void;
   addEventListener(
     type: "message",
