@@ -1,6 +1,6 @@
 # TypeScript Starter Template
 
-This is my personal minimal template for getting quickly started with building projects with [TypeScript](https://www.typescriptlang.org/).
+This is my personal minimal template for getting quickly started with building front-end libraries with [TypeScript](https://www.typescriptlang.org/).
 
 It's intended to be used with [Visual Studio Code](https://code.visualstudio.com/) in order to get automatic formatting with [Prettier](https://prettier.io/) on saving. You can configure other editors to do this too, but the repository only includes configuration files for VS Code, since it's what I use myself.
 
