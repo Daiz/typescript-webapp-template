@@ -1,15 +1,22 @@
+declare var module: NodeHotModule;
 import greeting from "./message";
 
-const ROOT = "#root";
 const NAMES = "Webpack & TypeScript";
 
 const d = document;
-const el = d.querySelector(ROOT)!;
-greeting(el, NAMES);
 
-declare var module: NodeHotModule;
-if (module.hot) {
-  module.hot.accept("./message", () => {
+export function init(selector: string) {
+  const el = d.querySelector(selector);
+
+  if (el) {
     greeting(el, NAMES);
-  });
+  }
+
+  if (module.hot) {
+    module.hot.accept("./message", () => {
+      if (el) {
+        greeting(el, NAMES);
+      }
+    });
+  }
 }

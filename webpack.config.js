@@ -1,16 +1,10 @@
-const {
-  CheckerPlugin
-} = require("awesome-typescript-loader");
-const {
-  resolve,
-  join,
-  basename,
-  dirname
-} = require("path");
+const { CheckerPlugin } = require("awesome-typescript-loader");
+const { resolve, join, basename, dirname } = require("path");
 const pkg = require("./package.json");
 
 const HOST = process.env.npm_package_config_host || pkg.config.host;
 const PORT = process.env.npm_package_config_port || pkg.config.port;
+const LIBRARY = process.env.npm_package_config_library || pkg.config.library;
 const MAIN = pkg.main;
 const FILENAME = basename(MAIN);
 const PATH = dirname(MAIN);
@@ -25,7 +19,9 @@ module.exports = {
   output: {
     filename: FILENAME,
     path: join(__dirname, PATH),
-    publicPath: "/"
+    publicPath: "/",
+    library: LIBRARY,
+    libraryTarget: "var"
   },
 
   devtool: "source-map",
@@ -35,7 +31,8 @@ module.exports = {
   },
 
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader",
         exclude: resolve(__dirname, "node_modules"),
@@ -48,12 +45,14 @@ module.exports = {
       },
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-        use: [{
-          loader: "url-loader",
-          options: {
-            limit: 100000
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 100000
+            }
           }
-        }]
+        ]
       }
     ]
   },

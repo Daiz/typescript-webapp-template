@@ -1,11 +1,12 @@
 {
   "name": "typescript-starter-template",
   "version": "1.0.0",
-  "main": "dist/bundle.js",
+  "main": "dist/library.js",
   "module": "lib/index.js",
   "author": "Daiz <taneli.vatanen@gmail.com>",
   "license": "CC0-1.0",
   "config": {
+    "library": "Library",
     "host": "localhost",
     "port": "8080"
   },
