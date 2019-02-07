@@ -33,16 +33,6 @@ interface InsultResponse extends Response {
 type Messages = GreetMessage | InsultMessage;
 type Responses = GreetResponse | InsultResponse;
 
-interface TypedWorker<M, R> {
-  postMessage(data: M): void;
-  addEventListener(
-    type: "message",
-    listener: (event: { data: R }) => void
-  ): void;
-  addEventListener(type: "error", listener: (event: ErrorEvent) => void): void;
-  terminate(): void;
-}
-
 export interface IGreeterWorker extends TypedWorker<Messages, Responses> {}
 
 ctx.addEventListener("message", ({ data }: { data: Messages }) => {
