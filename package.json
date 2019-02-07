@@ -14,11 +14,7 @@
     "build": "webpack -p",
     "lib": "tsc"
   },
-  "dependencies": {
-    "csstips": "^0.3.0",
-    "csx": "^9.0.0",
-    "typestyle": "^2.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "^10.12.21",
     "awesome-typescript-loader": "^5.2.1",

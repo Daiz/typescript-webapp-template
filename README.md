@@ -1,6 +1,6 @@
 # TypeScript Webapp Template
 
-This is my personal lean template for getting quickly started with building front-end webapps using [TypeScript](https://www.typescriptlang.org/).
+This is my personal minimal template for getting quickly started with building projects with [TypeScript](https://www.typescriptlang.org/).
 
 It's intended to be used with [Visual Studio Code](https://code.visualstudio.com/) in order to get automatic formatting with [Prettier](https://prettier.io/) on saving. You can configure other editors to do this too, but the repository only includes configuration files for VS Code, since it's what I use myself.
 
@@ -19,10 +19,6 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 Webpack bundles the project, naturally. May get replaced with [Parcel](https://parceljs.org/) in the future, but for the time being Webpack enables more useful features.
 
 A live reloading development server is also a must, which is why we also have Webpack Serve. You can also use it to preview your project over local WiFi (useful for testing with eg. real mobile devices). To do this, run `npm set typescript-webapp-template:host 192.168.X.X` (replace `typescript-webapp-template` with the value of `name` in your `package.json`) with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this. Now you should be able to preview your app from other devices by accessing it via the defined IP.
-
-### [TypeStyle](https://typestyle.github.io/)
-
-A typed CSS-in-JS solution that's very pleasant to use. You'll probably want the `csx` and `csstips` helper modules to go with this too, so they're included by default.
 
 ### [Prettier](https://prettier.io/)
 
@@ -59,6 +55,10 @@ If you or someone else you work with isn't using VS Code, you can also configure
 ```
 
 ## What's _not_ included
+
+### CSS-in-JS
+
+If you want a CSS-in-JS solution, I recommend [TypeStyle](https://typestyle.github.io/). Works great with TypeScript! To get it and its helper libraries, just run `npm install typestyle csx csstips` and you'll be up and running in no time.
 
 ### Automatic vendor bundling support
 
