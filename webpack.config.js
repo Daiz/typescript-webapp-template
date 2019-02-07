@@ -41,7 +41,7 @@ module.exports = {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader",
         exclude: resolve(__dirname, "node_modules"),
-        include: resolve(__dirname, "src")
+        include: [resolve(__dirname, "src"), resolve(__dirname, "typings")]
       },
       {
         enforce: "pre",
