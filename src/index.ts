@@ -1,18 +1,26 @@
 declare var module: NodeHotModule;
 
-import greeting from "./message";
+import message, { MessageContainer } from "./message";
 import GreeterWorker, { IGreeterWorker } from "./workers/greeter.worker";
-
-const NAMES = "Webpack & TypeScript";
 
 const d = document;
 
 export function init(selector: string) {
-  const el = d.querySelector(selector);
+  const el = d.querySelector(selector)!;
 
-  if (el) {
-    greeting(el, NAMES);
-  }
+  const message1: MessageContainer = {
+    el: d.createElement("div"),
+    text: "",
+    color: "black"
+  };
+  const message2: MessageContainer = {
+    el: d.createElement("div"),
+    text: "",
+    color: "black"
+  };
+
+  el.appendChild(message1.el);
+  el.appendChild(message2.el);
 
   const greeter1: IGreeterWorker = new GreeterWorker();
   const greeter2: IGreeterWorker = new GreeterWorker();
@@ -20,10 +28,14 @@ export function init(selector: string) {
   greeter1.addEventListener("message", ({ data }) => {
     switch (data.type) {
       case "greet":
-        console.log(`Greeted by Worker 1: ${data.greeting}`);
+        message1.text = data.greeting;
+        message1.color = "green";
+        message(message1);
         break;
       case "insult":
-        console.log(`Insulted by Worker 1: ${data.insult}`);
+        message1.text = data.insult;
+        message1.color = "red";
+        message(message1);
         break;
       default:
         console.log(`Message from Worker 1: ${JSON.stringify(data)}`);
@@ -34,10 +46,14 @@ export function init(selector: string) {
   greeter2.addEventListener("message", ({ data }) => {
     switch (data.type) {
       case "greet":
-        console.log(`Greeted by Worker 2: ${data.greeting}`);
+        message2.text = data.greeting;
+        message2.color = "green";
+        message(message2);
         break;
       case "insult":
-        console.log(`Insulted by Worker 2: ${data.insult}`);
+        message2.text = data.insult;
+        message2.color = "red";
+        message(message2);
         break;
       default:
         console.log(`Message from Worker 2: ${JSON.stringify(data)}`);
@@ -47,7 +63,8 @@ export function init(selector: string) {
   if (module.hot) {
     module.hot.accept("./message", () => {
       if (el) {
-        greeting(el, NAMES);
+        message(message1);
+        message(message2);
       }
     });
   }
