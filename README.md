@@ -18,7 +18,11 @@ It's intended to be used with [Visual Studio Code](https://code.visualstudio.com
 
 Webpack bundles the project, naturally. May get replaced with [Parcel](https://parceljs.org/) in the future, but for the time being Webpack enables more useful features.
 
-A live reloading development server is also a must, which is why we also have Webpack Serve. You can also use it to preview your project over local WiFi (useful for testing with eg. real mobile devices). To do this, run `npm set typescript-webapp-template:host 192.168.X.X` (replace `typescript-webapp-template` with the value of `name` in your `package.json`) with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this. Now you should be able to preview your app from other devices by accessing it via the defined IP.
+A live reloading development server is also a must, which is why we also have Webpack Serve. You can also use it to preview your project over local WiFi (useful for testing with eg. real mobile devices). To do this, run `npm set typescript-starter-template:host 192.168.X.X` (replace `typescript-starter-template` with the value of `name` in your `package.json`) with the IP pointing to your local WiFi network IP address. Make sure to restart the dev server when changing this. Now you should be able to preview your app from other devices by accessing it via the defined IP.
+
+#### Web Worker support
+
+Web Workers take a considerable amount of setup to make them function properly with both Webpack and TypeScript, not to mention making all the communication with workers typed. Which is why the template is configured for this use case, along with example code on how to make typed web workers.
 
 ### [Prettier](https://prettier.io/)
 

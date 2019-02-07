@@ -21,7 +21,8 @@ module.exports = {
     path: join(__dirname, PATH),
     publicPath: "/",
     library: LIBRARY,
-    libraryTarget: "var"
+    libraryTarget: "var",
+    globalObject: "this"
   },
 
   devtool: "source-map",
@@ -32,6 +33,12 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.worker\.tsx?$/,
+        use: {
+          loader: "worker-loader"
+        }
+      },
       {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader",
