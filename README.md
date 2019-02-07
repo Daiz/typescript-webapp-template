@@ -1,4 +1,4 @@
-# TypeScript Webapp Template
+# TypeScript Starter Template
 
 This is my personal minimal template for getting quickly started with building projects with [TypeScript](https://www.typescriptlang.org/).
 

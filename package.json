@@ -1,5 +1,5 @@
 {
-  "name": "typescript-webapp-template",
+  "name": "typescript-starter-template",
   "version": "1.0.0",
   "main": "dist/bundle.js",
   "module": "lib/index.js",
