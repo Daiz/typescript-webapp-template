@@ -62,7 +62,7 @@ If you want a CSS-in-JS solution, I recommend [TypeStyle](https://typestyle.gith
 
 ### Automatic vendor bundling support
 
-[AutoDllPlugin](https://github.com/asfktz/autodll-webpack-plugin) is a wonderful tool for improving build times and separating dependencies into its own vendor bundle, but the canonic version of the plugin does not support Webpack 4 right now. However, it will be included once support is in.
+[AutoDllPlugin](https://github.com/asfktz/autodll-webpack-plugin) is a wonderful tool for improving build times and separating dependencies into its own vendor bundle. Recommended if you include heavier production dependencies that will rarely update. Webpack 5 should eventually come with similar caching out of the box.
 
 ### External CSS loaders
 
