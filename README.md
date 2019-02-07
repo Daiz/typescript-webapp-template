@@ -26,7 +26,7 @@ Just focus on the coding and let Prettier take care of the formatting for you. M
 
 ### [TSLint](https://palantir.github.io/tslint/)
 
-A minimal TSLint configuration with `tslint-language-service` (so you don't need a TSLint plugin in your editor) is included that flags the usage of `==` and `!=` over `===` and `!==` as errors (`triple-equals` rule), except for comparison against `null`. If you want a wider set of TSLint rules to use, consider [`tslint-config-standard`](https://github.com/blakeembrey/tslint-config-standard). To use it, simply change your `tslint.json` to the following:
+A minimal TSLint configuration with `typescript-tslint-plugin` (so you don't need a TSLint plugin in your editor - if you have one, you should disable it) is included that flags the usage of `==` and `!=` over `===` and `!==` as errors (`triple-equals` rule), except for comparison against `null`. If you want a wider set of TSLint rules to use, consider [`tslint-config-standard`](https://github.com/blakeembrey/tslint-config-standard). To use it, simply change your `tslint.json` to the following:
 
 ```javascript
 {
