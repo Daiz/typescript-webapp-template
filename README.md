@@ -130,7 +130,7 @@ const history = require("connect-history-api-fallback");
 
 ### React
 
-TBD - for React you'll want React itself, React DOM, types and hot loading
+If you want to develop React applications, I recommend using [Next.js](https://nextjs.org/) instead.
 
 ### Routing
 
