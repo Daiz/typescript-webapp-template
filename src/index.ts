@@ -8,63 +8,48 @@ const d = document;
 export function init(selector: string) {
   const el = d.querySelector(selector)!;
 
-  const message1: MessageContainer = {
-    el: d.createElement("div"),
-    text: "",
-    color: "black"
-  };
-  const message2: MessageContainer = {
-    el: d.createElement("div"),
-    text: "",
-    color: "black"
-  };
-
-  el.appendChild(message1.el);
-  el.appendChild(message2.el);
-
-  const greeter1 = new GreeterWorker();
-  const greeter2 = new GreeterWorker();
-  greeter1.postMessage({ type: "greet", name: "TypeScript" });
-  greeter1.addEventListener("message", ({ data }) => {
-    switch (data.type) {
-      case "greet":
-        message1.text = data.greeting;
-        message1.color = "green";
-        message(message1);
-        break;
-      case "insult":
-        message1.text = data.insult;
-        message1.color = "red";
-        message(message1);
-        break;
-      default:
-        console.log(`Message from Worker 1: ${JSON.stringify(data)}`);
+  const messages: MessageContainer[] = [
+    {
+      el: d.createElement("div"),
+      text: "TypeScript",
+      color: "black"
+    },
+    {
+      el: d.createElement("div"),
+      text: "JavaScript",
+      color: "black"
     }
-  });
+  ];
 
-  greeter2.postMessage({ type: "insult", name: "JavaScript" });
-  greeter2.addEventListener("message", ({ data }) => {
-    switch (data.type) {
-      case "greet":
-        message2.text = data.greeting;
-        message2.color = "green";
-        message(message2);
-        break;
-      case "insult":
-        message2.text = data.insult;
-        message2.color = "red";
-        message(message2);
-        break;
-      default:
-        console.log(`Message from Worker 2: ${JSON.stringify(data)}`);
-    }
+  const greeters: typeof GreeterWorker[] = [];
+  const greetTypes = ["greet", "insult"];
+  messages.forEach((msg, i) => {
+    el.appendChild(msg.el);
+    const greeter = new GreeterWorker();
+    greeters.push(greeter);
+    // @ts-ignore
+    greeter.postMessage({ type: greetTypes[i], name: msg.text });
+    greeter.onmessage = ({ data }) => {
+      console.log(`Message from Worker ${i}: ${JSON.stringify(data)}`);
+      switch (data.type) {
+        case "greet":
+          msg.text = data.greeting;
+          msg.color = "green";
+          message(msg);
+          break;
+        case "insult":
+          msg.text = data.insult;
+          msg.color = "red";
+          message(msg);
+          break;
+      }
+    };
   });
 
   if (module.hot) {
     module.hot.accept("./message", () => {
       if (el) {
-        message(message1);
-        message(message2);
+        messages.forEach(msg => message(msg));
       }
     });
   }
