@@ -6,6 +6,8 @@ declare interface TypedWorker<M, R> {
     listener: (event: { data: R }) => void
   ): void;
   addEventListener(type: "error", listener: (event: ErrorEvent) => void): void;
+  onmessage: (event: { data: R }) => void;
+  onerror: (event: ErrorEvent) => void;
   terminate(): void;
 }
 
@@ -16,4 +18,6 @@ declare interface TypedWorkerContext<M, R> {
     listener: (event: { data: M }) => void
   ): void;
   addEventListener(type: "error", listener: (event: ErrorEvent) => void): void;
+  onmessage: (event: { data: R }) => void;
+  onerror: (event: ErrorEvent) => void;
 }
